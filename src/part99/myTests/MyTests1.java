@@ -1,4 +1,4 @@
-package part0.myTests;
+package part99.myTests;
 
 public class MyTests1 {
 
