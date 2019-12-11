@@ -1,0 +1,61 @@
+Anotações:
+
+1) Numeric Promotion:
+
+	-Promotion: Tipo Pequeno para tipo Grande
+		-> Inteiros: Todas as operações com tipos de capacidade inferior a int, são promovidos para int no 
+		ato das operações aritméticas (inclusive char).
+		Ex: byte, short, char -> int
+		-> Decimais: Caso exista mais de um tipo de ponto flutuante, todos demais tipos são promovidos ao 
+		maior tipo de ponto flutuante da operação.
+		
+	-Casting ou downcasting: Tipo grande para tipo pequeno
+		Pode causar overflow, por ex:
+			int anotherInt = 125;
+			byte myByte = 15; //byte = 127 max
+			byte byteResult = (byte)(anotherInt + myByte); //overflow
+		
+		Pode causar perda de precisão, por ex:
+			double myDouble = 5.55;
+			int myInt = 4 + (int)myDouble; //perda da parte decimal
+			
+			
+2) Operadores Unários:
+
+	-Inversão de sinal:
+		int x = 10;
+		int x = -x
+		//x -> -10
+		
+	-Inversão de booleano, ex:
+		boolean verdade = true;
+		boolean falso = !verdade;
+		
+	-Compound assignment operators:
+		Este tipo de operação de "recebimento" é válida e pode ser usado em expessões, ex:
+			long d = (c = 2) // "d" e "c" recebem "2" por transitividade
+			long i = e + 3 * (f=3) - (h-=2); //expressão válida
+			
+			
+3) Relational Operators: (comparativos)
+
+	- Operadores relacionais, podem ser usados em expressões de atribuição, ex:
+		boolean b = x < y;
+		Podem ser usados em prints também, ex:
+		System.out.println("a < b: " + (a < l) );
+		
+4) Conditional operators:
+
+	- Expressões complexas podem ser utilizadas para montar expressões de atribuições em variáveis, ex:
+		1) boolean myBoolean = (myInt <= 3) && (anotherInt-- == 4) || (myInt++ == 4);
+		2) boolean x = (y != 10) ^ (z = false);
+		
+5) Operadores "Equality" (==) e .equals():
+	- Valores de Primitivos são comparados com "==", valores de Objetos são comparados com ".equals()"
+	- Caso Objetos forem comparados com "==" será comparado o endereço de memória
+	- ints de -127 a 127 são caheados e tem o mesmo endereço,ser Integers tb, não ocorre com double e float
+
+
+
+
+		 

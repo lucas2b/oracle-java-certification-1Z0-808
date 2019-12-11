@@ -1,6 +1,6 @@
 package part1.javaBasics;
 
-public class PrimitiveTypes {
+public class WholeNumericPrimitives {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
@@ -56,6 +56,7 @@ public class PrimitiveTypes {
 		double scientific = 5.000125E03; // 5.125
 		double myDouble3 = 5000.125;
 		double scientific2 = 5.000125E3;
+		float scientific3 = 5.000125E3F;
 		System.out.println("scientific=" + scientific + " myDouble3=" + myDouble3 + " scientific2=" + scientific2);
 		
 		double hexPi = 0x1.91eb851eb851fp1; //p = floating point portion

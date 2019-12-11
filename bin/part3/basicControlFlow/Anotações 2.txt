@@ -1,0 +1,114 @@
+1) Ternary Operator:
+	
+	-Formato da operação:
+		int c = a < 10 ? a++ : b++;
+	
+	-Lembrar este caso (em pós decrementos e pós acréscimos):
+		int g = 10;
+		g = (true == true) ? g++ : 0; //g não recebe o incremento, o valor de g permanece "10" após a operação.
+		System.out.println(g); //10
+		
+	-Já em "pré decrementos" ou "pré acréscimos", o valor da variável é alterado, ex:
+		int i = 20;
+		i = --i; //pré decremento
+		System.out.println(i); //19
+		
+2) Switch-case:
+
+	-A instrução aceita "int/Integer" e "char" (não long, nem float nem double)
+	-Não é obrigatório o case "default", nem instrução "break", nem mesmo nenhum "case",o bloco pode estar totalmente vazio
+	-Não aceita um "case" com String de "1" caractere,ex: case "a":, case "b":, case "c":
+
+	-O valor de "case" aceita referenciar uma variável "int" ou "char" (não Integer), desde que esta seja "final".
+		Ex:
+		
+		final int x = 4;
+		switch(x) {
+			case x: //final
+		}
+		
+		ou
+		
+		char letra = 'b';
+		final char opcao = 'b';
+		switch(letra) {
+			case opcao:	//final
+		}
+		
+	- Já o valor do "switch" pode referenciar os tipos "int", "Integer" e "char" e não precisam ser "final"
+	
+		Ex:
+		char letra = 'b'; //valor não-final
+		final char opcao = 'b';
+		switch(letra) {
+			case opcao:
+		}
+		
+		ou
+		
+		final Integer inteiro = 3; //ou new Integer(3);
+		switch(inteiro){
+			case 3:
+		}
+	
+	- É possível intercambiar os tipos "int" e "char" tanto nos campos "switch" como nos campos "case". 
+	  Porém se o tipo do "switch" for um "Integer", o valor do "case" não pode ser "char" (deve ser "int/Integer")
+	  
+	  	Ex:
+	  	Integer inteiro = new Integer(3);
+		switch(inteiro) {
+			case 'a': //não pode, não compila
+		}
+	  	
+	
+	- Um "int" pode receber 1 caractere literal entre aspas duplas, ex:
+		int x = '-';
+		O valor será convertido para o valor inteiro da tabela ASCII
+		Por isso é possível intercambiar os tipos "int" e "char" tanto no "switch" como no "case"
+		
+3) Do While Loop:
+	- Lembrar da estrutura:
+	
+		do{
+			...
+			...
+		}while(false); //lembrar do ponto e vírgula
+		
+	-O caso acima não pode ser convertido para um while normal, como por ex:
+	
+		while(false){
+		
+		}
+		pois o compilador dá erro de "Unreachable code" no interior do while (mesmo vazio)
+	
+	-A primeira passagem pelo "do" sempre é executada
+	
+	-As variáveis dentro do bloco "do{  }" NÃO PODEM SER ACESSADAS no teste do "while", para tanto, é necessário
+	 declarar a variável de controle antes do bloco "do{  }"
+	
+4) For Loop:
+	-Permite múltiplas inicializações de variáveis
+	-Permite múltiplos incrementos de variáveis
+	-O teste e os incrementos podem ser feitos com variáveis que não estão no trecho de inicialização
+	 de variáveis (podem ser feitos com variáveis anteriores)
+	
+		Ex dos casos acima:
+		int x = 0;
+		for(int y = 0, z = 4; x < 5 && y < 10; x++, y++) {
+		
+
+	-Não permite nome de variável de inicialização com nome igual ao declarado anteriormente (conflito)
+	
+5) If-Else
+
+	-Tomar cuidado com o seguinte teste do if que é aceito:
+	
+		boolean b = false;
+		if(b = true ) {
+			
+		}
+		
+		o "recebe" de uma expressão booleana é válida no teste do "if"
+	
+	- Não é possível comparar com "==" 2 classes diferentes, por exemplo String com StringBuilder
+		

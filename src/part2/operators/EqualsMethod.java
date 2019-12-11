@@ -14,7 +14,7 @@ public class EqualsMethod {
 		
 		System.out.println("hash myInteger          (127): " + System.identityHashCode(myInteger));
 		System.out.println("hash myAnotherInteger   (127): " + System.identityHashCode(myAnotherInteger));
-		System.out.println("myInteger == myAnotherInteger: " + (myInteger == myAnotherInteger)); //-127 to 128 cached 
+		System.out.println("myInteger == myAnotherInteger: " + (myInteger == myAnotherInteger)); //-127 to 127 cached 
 		System.out.println();
 		
 		myInteger = 128; //Integer.valueOf(128) not cached, new memory pointer

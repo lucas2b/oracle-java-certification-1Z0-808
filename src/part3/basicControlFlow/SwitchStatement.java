@@ -57,10 +57,10 @@ public class SwitchStatement {
 		
 		
 		//Examples that does not compile
-		int x = 4;
 		
-		switch(x) {
-			//case x: //does not compile
+		Integer inteiro = new Integer(3);
+		switch(inteiro) {
+			//case 'a':
 		}
 
 	}

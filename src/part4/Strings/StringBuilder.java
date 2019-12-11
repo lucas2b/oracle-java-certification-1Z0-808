@@ -71,6 +71,24 @@ public class StringBuilder {
 		b = b.append("is").append(" so ").append(" cool");
 		System.out.println(a);
 		System.out.println(b);
+		System.out.println();
+		
+		//---------------------------------- // ---------------------------------
+		
+		java.lang.StringBuilder b1 = new java.lang.StringBuilder("rumble");
+		b1.append(4).deleteCharAt(3);
+		System.out.println(b1);
+		System.out.println(b1.length());
+		sb.delete(3, sb.length()-1);
+		
+		//rumble4
+		//0123456
+		//rumle4
+		//012345 = length 6
+		//rum
+		
+		
+		
 	}
 
 }

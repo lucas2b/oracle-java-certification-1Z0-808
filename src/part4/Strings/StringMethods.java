@@ -70,7 +70,7 @@ public class StringMethods {
 		System.out.println(str2.endsWith("va"));
 		System.out.println();
 		
-		//contains - return boolean
+		//c - return boolean
 		
 		System.out.println(str2.contains(str4));
 		System.out.println(str2.contains("av"));

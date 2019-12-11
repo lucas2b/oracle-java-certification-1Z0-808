@@ -4,6 +4,8 @@ public class NumericPromotion {
 
 	public static void main(String[] args) {
 		
+		//------------------ Aula 3 - Numeric Promotion And Casting  ---------------------
+		
 		//------------- Promotion -> "Smaller" to "bigger"
 		int x = 5;
 		double y = 10.55;
@@ -36,7 +38,7 @@ public class NumericPromotion {
 		short s1 = 14;
 		short s2 = 6;
 		
-		int res1 = s1/s2; //upcasting
+		int res1 = s1/s2; //promotion
 		
 		//teste3
 		byte b1 = 10;
@@ -59,6 +61,26 @@ public class NumericPromotion {
 		double d2 = 30.2;
 		
 		double res5 = s3 * f1 / d2; //upcasting
+		
+		//teste 7
+		char c1 = 'a';
+		char c2 = 'b';
+		int soma = c1 + c2;
+		
+		//teste8
+		float f4 = 1.3f;
+		float f5 = 1.3f;
+		
+		float result = f4+f5;
+		
+		//teste 9
+		byte   b4 	   = 3;
+		short  sh3 	   = 40;
+		int    inteiro = 149;
+		double duplo   = 342.42;
+		float  fl      = 43.12f;
+		
+		double result1 = b4 + sh3 + inteiro + duplo + fl; 
 		
 		
 		

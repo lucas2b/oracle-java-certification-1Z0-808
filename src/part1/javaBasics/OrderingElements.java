@@ -14,7 +14,7 @@ public class OrderingElements {
 	}
 	
 	//ATENÇÃO
-	class ClasseInteraPermitida{
+	class ClasseInteiraPermitida{
 		public int nome;
 	}
 

@@ -2,35 +2,32 @@ package part2.operators;
 
 public class ExamQuestions {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
+		//Question 1
+			//A, D
 		
-		//------ Question 2
+		//Question 2 (tricky)
+			//A, B, D(long também pode conter 2 bytes, float tb poderia)
 		
-		byte x = 5;
-		byte y = 10;
+				//byte x = 5;
+				//byte y = 10;
+				//float z = x + y;
 		
-		int z = x + y; //a, b, d
+		//Question 3
+			//C, D, F, B(é possível fazer cast de 1 variável apenas para o tipo menor)
 		
-		//------ Question 3
+				//long x = 10;
+				//int y = 2 * (int)x; //(Resposta B)
 		
-		long long1 = 10;
-		//int int1 = 2 * long1;
+		//Question 4
+			//B
 		
-		int int1 = 2 * (int)long1; //b, 
-		// change the data type of x on line 3 to short = c
-		int int2 = (int)(2 * long1); //d
-		long long2 = 2 * long1; //f 
+		//Question 5
+			//A
 		
-		//Correct answers = b, c, d, f
-		
-		//------ Question 4 = b
-		//------ Question 5 = a
-		//------ Question 6 = c
-		
-		
-		
+		//Question 6
+			//C
 
 	}
 

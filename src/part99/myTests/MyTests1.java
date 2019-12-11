@@ -17,6 +17,13 @@ public class MyTests1 {
 				
 			}
 		
+		//Teste de cache de números
+		double b1 = 127;
+		double b2 = 127;
+		
+		System.out.println(System.identityHashCode(b1));
+		System.out.println(System.identityHashCode(b2));
+		
 
 	}
 

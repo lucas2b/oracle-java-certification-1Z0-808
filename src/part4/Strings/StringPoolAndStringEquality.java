@@ -2,7 +2,6 @@ package part4.Strings;
 
 public class StringPoolAndStringEquality {
 
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
 		//------------------ Aula 3 - String Pool and String Equality  ---------------------

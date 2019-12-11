@@ -1,6 +1,6 @@
 package part2.operators;
 
-public class AssignemtOperators {
+public class AssignmentOperators {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {

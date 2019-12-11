@@ -55,6 +55,12 @@ public class TernaryOperator {
 		int g = 10;
 		g = (true == true) ? g++ : 0; //g não recebe o incremento 
 		System.out.println("g:" + g);
+		System.out.println();
+		
+		//o mesmo acontece em 
+		int i = 20;
+		i = i--;
+		System.out.println(i);
 		
 	}
 

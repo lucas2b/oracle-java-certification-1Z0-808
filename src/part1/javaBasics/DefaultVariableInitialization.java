@@ -29,7 +29,7 @@ public class DefaultVariableInitialization {
 		System.out.println("myShort:"   + myShort );  //0
 		System.out.println("myInt:"     + myInt);     //0
 		System.out.println("myLong:"    + myLong);    //0
-		System.out.println("myFloat:"   + myFloat);   //0,0
+		System.out.println("myFloat:"   + myFloat);   //0.0
 		System.out.println("myDouble:"  + myDouble);  //0.0
 		System.out.println("myChar:"    + myChar);    //empty char
 		

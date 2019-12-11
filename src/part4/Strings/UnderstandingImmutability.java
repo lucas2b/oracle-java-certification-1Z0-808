@@ -11,7 +11,7 @@ public class UnderstandingImmutability {
 		
 		System.out.println(str);
 		hello = "hello alterada";
-		System.out.println(str);
+		System.out.println(str); //não altera
 		System.out.println();
 		
 		//Teste com referência a objetos
