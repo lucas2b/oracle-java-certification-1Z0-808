@@ -1,0 +1,92 @@
+1) Declaração de métodos:
+	
+	-> Modificador de acesso não é obrigatório (sem modificador = package private/só as classes do mesmo pacote acessam)
+	-> Modificadores "public", "final" e "static" tem ordem intercambiável entre sí, desde que o tipo de retorno venha por último
+	-> O nome de método segue as mesmas restrições de nomes de variáveis
+	
+
+2) Argumentos vs Parâmetros:
+	->Parâmetros = aparecem na definição do método
+	->Agumentos = valores passados na chamada
+	
+
+3) Parâmetros:
+	
+	-> Os nomes dos parâmetros devem ser OBRIGATORIAMENTE diferentes, independente do tipo deles, ex:
+		public void parametros(int p, String p); //não compila, mesmo nome
+		
+	-> Parâmetro variável:
+		-> Permite apenas 1 parâmetro variável por assinatura de método
+		-> Deve ser sempre o último parâmetro
+		-> Formato: public void teste(int param1, int... param2);
+		   -> ex de chamada: inst.teste(1, 3,4,5,3); (o array também pode ser passado da forma tradicional "new int[]{}")
+		   -> A chamada no estilo "anonymous array" inst.teste(1, {1,2,3,4}) não compila!
+		   -> A chamada utilizando apenas a declaração de tipo inst.teste(1, new int[2]) funciona, mas envia um array vazio!
+		   -> Atenção! Caso for passado o valor "null" como argumento, ocorrerá uma exceção ao tentar acessar valores.
+		 
+	-> Criação de array na chamada de métodos, ex:
+		-> Método:  public void jump3(int[] p1, int[] p2) {}
+		-> Chamada: inst.jump3( new int[]{1,2,3}, new int[]{2,3,4} );
+		
+
+4) Modificadores de acesso:
+
+	-> A ausência de modificador de acesso em um elemento (classe/propriedade) chama-se "private" package
+	-> "private" só permite acesso apenas e tão somente apenas na classe que o declara
+	-> "public", "protected" e "package" protected são acessíveis dentro do mesmo package
+	-> Apenas "public" permite acesso fora do package e em qualquer parte da aplicação
+	
+5) Métodos e Campos estáticos:
+
+	-> Para acessar campos estáticos/métodos de uma classe, não é preciso instanciá-la, basta apenas chamar 
+	   pela sua classe com letra inicial maiúscula, ex "Dog.count" ou ainda declarando uma variável nula do 
+	   tipo da Classe.
+	   
+	   		Dog inst = null; 
+	   		System.out.println(inst.count); //funciona (a classe Dog contém um campo estático "count")
+	   
+	   
+	-> Lembrar: O mesmo descrito acima, vale para acessar métodos		
+	-> Lembrar: É possível acessar um método/campo estático à partir de um método não-estático
+	-> Lembrar: Uma Classe não pode ser "static"
+	
+6) Variáveis FINAL:
+
+	-> É possível manipular um objeto, ou uma lista final, através de seus métodos, apenas não é possível "re-assinalar"
+	   a variável para outro tipo
+	-> A variável FINAL deve ser OBRIGATORIAMENTE inicializada em sua declaração
+	
+7) Inicialização static:
+
+	-> As variáveis do tipo "static" podem ser inicializadas em 1 ou mais blocos "static", dentro do escopo da classe
+	   e serão executados em ordem de declaração, ex:
+	   
+	   private final static inteiro1;
+	   
+	   static{
+	     inteiro1 = 10; //inicializações
+	     inteiro2 = 20;
+	     
+	     inteiro1 = 30; //erro de compilação, variável é do tipo "final"
+	   }
+	   
+	   
+8) Referências passadas para método
+	-> Os tipos primitivos são passados por valor-cópia
+	-> Os tipos objetos são passados por referência, PORÉM a referência não pode ser alterada (re-instanciada por exemplo),
+	   sendo essas modificações realizadas inválidas
+	   
+9) Em um método "void" o retorno "return;" é válido e compila
+
+10) Um erro de compilação interno de um método não se propaga na forma de erro de compilação em sua chamada de execução
+
+11) Sobrecarga de métodos:
+
+	-> Um método com Default Access Modifier entra em conflito com um método public com a mesma assinatur e não compila
+	-> Dois métodos sobrecarregador NÃO podem ter exatamente a mesma assinatura, mesmo com tipo de retorno diferente, 
+	   modificador de acesso diferente ou tendo propriedade static ou não. Dois métodos de nome igual e com a mesma assina-
+	   tura não irão compilar.
+	-> A assinatura do tipo array (int[] numbers) e (int... numbers) contam como assinaturas iguais
+	   		
+	   		
+	   		

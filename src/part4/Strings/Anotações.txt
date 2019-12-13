@@ -1,6 +1,6 @@
 1) Concatenção de Strings:
 
-	- No caso de "System.out.println()":
+	-> No caso de "System.out.println()":
 		1) Soma de inteiros antes e String depois: A soma é efetuada e o resultado é concatenado com String
 		   System.out.println(1 + 2 + "b"); //3b
 		   
@@ -8,26 +8,26 @@
 		   uma concatenação de tudo
 		   System.out.println("result= " + 10 + 20); //result=1020
 		   
-	- Caso de concatenação para outras utilizações:
+	-> Caso de concatenação para outras utilizações:
 		Operações de concatentação devem ser feitas pelo metodo "palavra1".concat("palavra2") e 
 		deve ser re-assinalada para outra variável
 
 2) Imutabilidade:
 
-	- O valor de uma String é passado para outra variável por cópia, portanto a alteração na primeira String
-	  não reflete na segunda variável
+	-> O valor de uma String é passado para outra variável por cópia, portanto a alteração na primeira String
+	   não reflete na segunda variável
 	
 	  
 3) String Pool:
 
-	-Strings declaradas sem a palavra chave "new", são alocadas no String Pool do Java. Outras variáveis que
+	-> Strings declaradas sem a palavra chave "new", são alocadas no String Pool do Java. Outras variáveis que
 	 declararem a mesma String sem usar a palavra "new", apontarão para o String Pool e terão o mesmo endereço.
 	
-	-Caso que utiliza String Pool:
+	-> Caso que utiliza String Pool:
 		String name  = "John";
 		String john	 = "Jo" +  "hn";
 		
-	-Caso que NÃO utiliza a String Pool:
+	-> Caso que NÃO utiliza a String Pool:
 		String abc = "abc";
 		String ab =  "ab";
 		String str =  ab + "c"; //Não utiliza String Pool pois parte da formação é feita por uma variável
@@ -36,7 +36,7 @@
 	
 	2)length()
 	
-	2)charAt(index i)
+	2)charAt(index i) //No caso de passar um índice fora do comprimento da String, retorna NullPointerException
 	
 	3)str.indexOf('a')       = índice da primeira ocorrência do caractere
 	  str.indexOf('a', 2)    = caractere à partir do index 2
@@ -65,14 +65,14 @@
    
 5) String Builder:
 
-	-Inicialização com uma String inicial: StringBuilder builder = new StringBuilder("start");
-	-Inicialização com uma capacidade incial: new StringBuilder(100);
-	-myBuilder.append("palavra") = concatena ao fim da sequência
-	-myBuilder.length() 		 = retorna a quantidade de caracteres presentes
-	-myBuilder.capacity()        = retorna a capacidade corrente, que é atualizada quando necessário 
-	-myBuilder.insert(1, "bb")   = insere na posição 1 os caracteres "bb" e empurra a continuação da string para direita
-	-myBuilder.deleteCharAt(3) 	 = deleta 1 caractere na posição indicada
-	-myBuilder.delete(startIndex, finalIndex) = deleta uma sequência de caracteres dentro dos índices especificados
+	-> Inicialização com uma String inicial: StringBuilder builder = new StringBuilder("start");
+	-> Inicialização com uma capacidade incial: new StringBuilder(100);
+	-> myBuilder.append("palavra") = concatena ao fim da sequência
+	-> myBuilder.length() 		   = retorna a quantidade de caracteres presentes
+	-> myBuilder.capacity()        = retorna a capacidade corrente, que é atualizada quando necessário 
+	-> myBuilder.insert(1, "bb")   = insere na posição 1 os caracteres "bb" e empurra a continuação da string para direita
+	-> myBuilder.deleteCharAt(3) 	 = deleta 1 caractere na posição indicada
+	-> myBuilder.delete(startIndex, finalIndex) = deleta uma sequência de caracteres dentro dos índices especificados
 					  startIndex = inclusivo
 					  finalIndex = exclusivo
 	

@@ -2,14 +2,14 @@ Anotações:
 
 1) Importações:
 
-	-Classes do default package não pode ser importadas em outras classes
-	-Uma classe com mesmo nome em 2 pacotes não pode ser importada se os 2 pacotes estão sendo importados
-	-Uma classe que só contém membros estáticos pode ser importada estaticamente
-	- Ordem dos elementos: PIC -> (Package, Imports, Class)
+	-> Classes do default package não pode ser importadas em outras classes
+	-> Uma classe com mesmo nome em 2 pacotes não pode ser importada se os 2 pacotes estão sendo importados
+	-> Uma classe que só contém membros estáticos pode ser importada estaticamente
+	->  Ordem dos elementos: PIC -> (Package, Imports, Class)
 
-2) Variáveis:
+2) Nomes de Variáveis:
 
-	- Permitidas:
+	-> Permitidos:
 		float  okFloat;
 		double $ok2Double1;
 		double _a1toDouble;
@@ -18,40 +18,42 @@ Anotações:
 	
 3) Primitivos:
 
-	- Caso Long não couber na range int, deve acabar em "L", ex: long max = 32_123_456_789L;
-	- Caso Long couber em int, não precisa do "L", ex: long n = 2_300;
-	- Inícios de Binário, Octal e Hexa:
+	-> Caso Long não couber na range int, deve acabar em "L", ex: long max = 32_123_456_789L;
+	-> Caso Long couber em int, não precisa do "L", ex: long n = 2_300;
+	-> Inícios de Binário, Octal e Hexa:
 		Binário = 0b (0 e 1)
 		Octal   = 0  (0 a 7)
 		Hexa    = 0x (0 a 9 e A a F)
-	- Separação de valore com "_":
+	-> Separação de valore com "_":
 		Não Permitido:
 		1)Antes do ponto decimal  : 12_.25
 		2)Depois do ponto decimal : 12._25
 		3)Antes do número         : _12.25
 		4)Depois do número        : 12.25_
-	- Número decimal sem "f" no final, é automaticamente "double", ex: 
+	-> Número decimal sem "f" no final, é automaticamente "double", ex: 
 		float myNumber = 25.4f; //25.4 is by default double
-	- Todo número float deve ser seguido de "f" no final, não importa sua magnitude, ex:
+	-> Todo número float deve ser seguido de "f" no final, não importa sua magnitude, ex:
 		float myNumber = 25.4f; //caso não tenha "f" ocorre erro de compilação
-	- Um float é automaticamente convertido para double, ex:
+	-> Um float é automaticamente convertido para double, ex:
 		double myDouble2 = 2.54F;
-	- "long" não pode ser automaticamente convertido para "int", ex: int amount = 9L;
-	- Notação científica:
+	-> "long" não pode ser automaticamente convertido para "int", ex: int amount = 9L;
+	-> Notação científica:
 		O "E" seguido de número, indica quantas casas o ponto decimal deve "pular", ex:
 		double scientific = 5.000125E03;  (5.125)
 		double scientific2 = 5.000125E3;  (5.125)
-	- O valor do "char" não pode conter mais de 1 caractere, com exceção das notações em unicode, ex:
+	-> O valor do "char" não pode conter mais de 1 caractere, com exceção das notações em unicode, ex:
 		char uniChar= '\u03A9';
 		Ao printar, aparecerá com o formato literal
 
 4) Boxing:
 
-	-Boxing: De "int" para "Integer" explicitamente
+	-> Boxing: De "int" para "Integer" explicitamente
 		Integer myInteger   = new Integer(10);
 		Integer myInteger2  = new Integer(null); //com null também é boxing
-	-Auto boxing: De "int" para "Integer" implicitamente 
+		
+	->Auto boxing: De "int" para "Integer" implicitamente 
 		Integer myInteger2 = 20;
 		Em chamadas de métodos, tb é auto boxing, ex: sum(10,10); //assinatura do método é sum(Integer i1, Integer i2);
-	-Unboxing: De "Integer" para "int" implicitamente
+		
+	-> Unboxing: De "Integer" para "int" implicitamente
 	int myInt2 = myInteger;

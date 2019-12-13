@@ -24,9 +24,10 @@ public class MultidimensionalArrays {
 
 		// 2D Asymmetrical array declaration
 
-		String[][] myAsymmetricalAray = new String[][] { { "One", "Two" }, // 1st row 2 elements
-				{ "Three", "Four", "Five" }, // 2nd row 3 elements
-				{ "Six", "Seven", "Eight", "Nine" }, // 3rd row with 4 elements
+		String[][] myAsymmetricalAray = new String[][] { 
+			    { "One", "Two" }, 				     // 1st row 2 columns
+				{ "Three", "Four", "Five" }, 		 // 2nd row 3 columns
+				{ "Six", "Seven", "Eight", "Nine" }, // 3rd row with 4 columns
 				null
 
 		};
@@ -56,6 +57,7 @@ public class MultidimensionalArrays {
 		// 3D Array
 		int[][][] array3D = new int[3][3][3];
 		int oneMorearray3D[][][] = new int[3][3][3];
+		
 
 		int[] oneMorearray3D2[][] = new int[3][3][3]; // very confusing but legal declaration
 

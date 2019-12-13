@@ -1,6 +1,5 @@
 package part6.ArrayList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -38,6 +37,9 @@ public class SearchingInArrayList {
 		
 		int index2 = Collections.binarySearch(integerList, 8);
 		System.out.println("index: " + index2 + ", num: 8");
+		
+		int index3 = Collections.binarySearch(integerList, 2);
+		System.out.println("index: " + index3 + ", num: 2");
 		
 		
 

@@ -1,6 +1,7 @@
 package part6.ArrayList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class WrappersInArrayList {
@@ -10,7 +11,7 @@ public class WrappersInArrayList {
 		// ------------------ Aula 4 - Using Wrapper Classes With ArrayList ---------------------
 		
 		List<Double> doubleList = new ArrayList();
-		doubleList.add(66.6);
+		doubleList.add(66.6); //autoboxing
 		doubleList.add(new Double(55.10));
 		
 		System.out.println(doubleList);
@@ -28,7 +29,6 @@ public class WrappersInArrayList {
 		
 		List<Integer> listaInteiros = new ArrayList();
 		listaInteiros.add(null);
-		
 //		int itemDaLista = listaInteiros.get(0); //Throws an exception
 		
 		
@@ -49,7 +49,7 @@ public class WrappersInArrayList {
 		nums.remove(new Integer(1));
 		
 		System.out.println(nums);
-		
+		System.out.println();
 		
 
 	}

@@ -22,7 +22,10 @@ public class IteratingList {
 		System.out.println("Using For Loop:");
 		for(int i=0; i < numbers.size(); i++) {
 			System.out.println(numbers.get(i));
-			//numbers.remove(2); //java.lang.IndexOutOfBoundsException
+			
+//			if(i==0)numbers.remove(2); //permitido
+//			if(i==0)numbers.add(2); //permitido
+			
 		}
 		System.out.println();
 		
@@ -45,6 +48,8 @@ public class IteratingList {
 			Integer number = iterator.next();
 			System.out.println(number);
 			iterator.remove(); //remove the current item
+			
+			
 		}
 		
 		System.out.println("List after removing elements in Iterator:" + numbers );
@@ -59,7 +64,11 @@ public class IteratingList {
 		numbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6));
 		for(ListIterator<Integer> listIterator = numbers.listIterator(3); listIterator.hasPrevious();  ) {
 			System.out.println(listIterator.previous());
+			//listIterator.add(3); //permitido
+			//listIterator.remove();
 		}
+		
+		System.out.println(numbers);
 		
 		
 		// ------------------ Aula 9 - Iterating List Part 2 ---------------------

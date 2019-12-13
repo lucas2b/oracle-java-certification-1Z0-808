@@ -11,7 +11,7 @@ public class UnderstandingArrays {
 		
 		//Declaration
 		
-		int[] firstArray     = new int[3];          //first  way
+		int[] firstArray     = new int[0];          //first  way
 		int   secondArray[]  = new int[2];          //second way
 		int   thirdArray[]   = new int[]{1,2,3};    //third  way
 		int[] fourthArray    = new int[3 * 5 / 2]; //fourth  way - round to 7
