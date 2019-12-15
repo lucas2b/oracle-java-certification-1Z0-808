@@ -76,7 +76,8 @@
 	-> Os tipos objetos são passados por referência, PORÉM a referência não pode ser alterada (re-instanciada por exemplo),
 	   sendo essas modificações realizadas inválidas
 	   
-9) Em um método "void" o retorno "return;" é válido e compila
+9) Em um método "void" o retorno "return;" é válido e compila, ele é útil quando se quer sair abruptamente do método, dentro
+   de um comando de seleção como "if" por exemplo.
 
 10) Um erro de compilação interno de um método não se propaga na forma de erro de compilação em sua chamada de execução
 
@@ -87,6 +88,9 @@
 	   modificador de acesso diferente ou tendo propriedade static ou não. Dois métodos de nome igual e com a mesma assina-
 	   tura não irão compilar.
 	-> A assinatura do tipo array (int[] numbers) e (int... numbers) contam como assinaturas iguais
-	   		
-	   		
-	   		
+	-> Sequência de prioridade para uma chamada de métodos com argumentos de "sum(1,2)"
+	   Sequência de assinaturas de métodos: int -> long -> double -> Integer -> Object -> var args
+	   										//1) esgotamento de tipos primitivos
+	   										//2) tipo Wrapper correspondente
+	   										//3) tipo Object 
+	   										//4) tipo var args

@@ -1,0 +1,55 @@
+1) Construtores:
+
+	-> Caso a classe tiver uma variável com mesmo nome do parâmetro do método construtor, ela deverá ser referenciada
+	   por "this", caso contrário, a referência feita será ao parâmetro do método, ex:
+	   
+	   private String color;
+	
+	   public Dog(String color) {
+		  this.color = color;
+          //color = color //parâmetro recebendo o próprio parâmetro
+	   }
+	   
+	 -> Existe construtor "private"!! Ele proíbe que qualquer outra classe a instancie, porém a própria classe pode
+	    instanciá-la através do método "main"
+	    
+	 -> Em construtores sobrecarregados, é possível invocar um método construtor dentro de outro método construtor utilizando
+	    a instrução "this(param1, param2)". Para funcionar, essa chamada deve ser obrigatoriamente a primeira instrução do
+	    construtor. A técnica é chamada de "constructor chain". Ex:
+	    
+	    public Dog(String name) {
+			
+			//this.name = name;
+			//breed = "husky";
+			//weight = 30.0;
+		
+			//Dog(name, "husky"); //does not compile		
+			//new Dog(name, "husky"); //creates another Dog
+		
+			this(name, "husky"); //chamada a outro construtor	
+		}
+		
+		-> "this()" não pode ser usado dentro de métodos "normais" ou "regulares".
+		
+		-> "this()." não existe e causa erro de compilação.
+		
+		-> Um construtor pode NÃO ter modificador de acesso nenhum, desta forma ele é um "private package", ou seja
+		   apenas classes do mesmo package podem instanciá-la.
+		
+		
+2) Inicializadores de instância:
+	-> Existe na declaração de classe, o bloco inicializador de instância denotado por
+		
+		{
+	
+ 		}
+ 		
+ 		Que inicializa os atributos dinâmicos do Objeto.
+
+3) Ordem de inicialização de objetos:
+	1) Se há superclasse, a inicializa primeiro
+	2) Declaração de variáveis estáticas e inicializadores estáticos em ordem que aparecem
+	3) Declaração de variáveis de instância e inicializadores de instância na ordem que aparecem
+	4) O Construtor
+
+

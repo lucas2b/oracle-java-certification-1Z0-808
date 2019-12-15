@@ -1,16 +1,21 @@
 1) Concatenção de Strings:
 
-	-> No caso de "System.out.println()":
-		1) Soma de inteiros antes e String depois: A soma é efetuada e o resultado é concatenado com String
-		   System.out.println(1 + 2 + "b"); //3b
+	-> É perfeitamente possível somar Strings com "+", como por ex:
+	    String str1 = "str1";
+		String str2 = "str2";
+		String str3 = str1 + str2;
+		System.out.println(str3);
+
+	-> No caso de concatenação dentro "System.out.println()":
+		Caso 1) Soma de inteiros antes e String depois: A soma é efetuada e o resultado é concatenado com String
+		        System.out.println(1 + 2 + "b"); //3b
 		   
-		2) String primeiro e soma de inteiros: Se a soma não estiver isolada por parênteses, é realizada
-		   uma concatenação de tudo
-		   System.out.println("result= " + 10 + 20); //result=1020
+		Caso 2) String primeiro e soma de inteiros: Se a soma não estiver isolada por parênteses, é realizada
+		        uma concatenação de tudo
+		        System.out.println("result= " + 10 + 20); //result=1020
 		   
-	-> Caso de concatenação para outras utilizações:
-		Operações de concatentação devem ser feitas pelo metodo "palavra1".concat("palavra2") e 
-		deve ser re-assinalada para outra variável
+	-> Modo mais correto de fazer concatenação de "Strings": str2.concat(str2) e o retorno
+	   deve ser re-assinalado para uma nova variável.
 
 2) Imutabilidade:
 
@@ -62,6 +67,8 @@
 	  str1.replace("is", "_") = substitui uma "String"
 	  
    10)str1.trim() = remove os espaços em branco antes e depois da String
+   
+   11)str1.concat(str2) = concatena 2 String e retorna uma String nova que deve ser re-associada
    
 5) String Builder:
 

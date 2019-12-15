@@ -34,6 +34,13 @@ public class StringConcatenation {
 		String world = new String("world");
 		String helloWorld = hello + world;
 		System.out.println(helloWorld);
+		
+		System.out.println();
+		
+		String str1 = "str1";
+		String str2 = "str2";
+		String str3 = str1 + str2;
+		System.out.println(str3);
 
 	}
 

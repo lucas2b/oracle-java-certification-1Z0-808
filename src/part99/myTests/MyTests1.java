@@ -1,5 +1,7 @@
 package part99.myTests;
 
+import part8.ClassDesign.OrderOfInitializations;
+
 public class MyTests1 {
 
 	public static void main(String[] args) {
@@ -24,6 +26,10 @@ public class MyTests1 {
 		System.out.println(System.identityHashCode(b1));
 		System.out.println(System.identityHashCode(b2));
 		
+		
+		//testando construtor private package
+		
+//		OrderOfInitializations order = new Or //não consigo acessar o construtor fora do package dele
 
 	}
 

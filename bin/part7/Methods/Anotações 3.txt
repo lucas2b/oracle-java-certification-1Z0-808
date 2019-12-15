@@ -20,6 +20,8 @@
 		-> Deve ser sempre o último parâmetro
 		-> Formato: public void teste(int param1, int... param2);
 		   -> ex de chamada: inst.teste(1, 3,4,5,3); (o array também pode ser passado da forma tradicional "new int[]{}")
+		   -> A chamada no estilo "anonymous array" inst.teste(1, {1,2,3,4}) não compila!
+		   -> A chamada utilizando apenas a declaração de tipo inst.teste(1, new int[2]) funciona, mas envia um array vazio!
 		   -> Atenção! Caso for passado o valor "null" como argumento, ocorrerá uma exceção ao tentar acessar valores.
 		 
 	-> Criação de array na chamada de métodos, ex:
@@ -36,12 +38,15 @@
 	
 5) Métodos e Campos estáticos:
 
-	-> Para acessar campos estáticos de uma classe, não é preciso instanciá-la, basta apenas chamar pela sua classe
-	   com letra inicial maiúscula, ex "Dog.count" ou utilizando uma variável do tipo da classe que seja nula, ex:
+	-> Para acessar campos estáticos/métodos de uma classe, não é preciso instanciá-la, basta apenas chamar 
+	   pela sua classe com letra inicial maiúscula, ex "Dog.count" ou ainda declarando uma variável nula do 
+	   tipo da Classe.
 	   
-	   		Dog inst = null;
-	   		System.out.println(inst.count); //funciona
-	   		
+	   		Dog inst = null; 
+	   		System.out.println(inst.count); //funciona (a classe Dog contém um campo estático "count")
+	   
+	   
+	-> Lembrar: O mesmo descrito acima, vale para acessar métodos		
 	-> Lembrar: É possível acessar um método/campo estático à partir de um método não-estático
 	-> Lembrar: Uma Classe não pode ser "static"
 	
@@ -66,7 +71,25 @@
 	   }
 	   
 	   
-8) 
-	   		
-	   		
-	   		
+8) Referências passadas para método
+	-> Os tipos primitivos são passados por valor-cópia
+	-> Os tipos objetos são passados por referência, PORÉM a referência não pode ser alterada (re-instanciada por exemplo),
+	   sendo essas modificações realizadas inválidas
+	   
+9) Em um método "void" o retorno "return;" é válido e compila
+
+10) Um erro de compilação interno de um método não se propaga na forma de erro de compilação em sua chamada de execução
+
+11) Sobrecarga de métodos:
+
+	-> Um método com Default Access Modifier entra em conflito com um método public com a mesma assinatur e não compila
+	-> Dois métodos sobrecarregador NÃO podem ter exatamente a mesma assinatura, mesmo com tipo de retorno diferente, 
+	   modificador de acesso diferente ou tendo propriedade static ou não. Dois métodos de nome igual e com a mesma assina-
+	   tura não irão compilar.
+	-> A assinatura do tipo array (int[] numbers) e (int... numbers) contam como assinaturas iguais
+	-> Sequência de prioridade para uma chamada de métodos com argumentos de "sum(1,2)"
+	   Sequência de assinaturas de métodos: int -> long -> double -> Integer -> Object -> var args
+	   										//1) esgotamento de tipos primitivos
+	   										//2) tipo Wrapper correspondente
+	   										//3) tipo Object 
+	   										//4) tipo var args
