@@ -206,6 +206,19 @@
 	-> Uma Interface pode ter método estáticos, e neste caso uma classe pode implementar 2 Interfaces com métodos de mesmo
 	   nome e assinatura, pois o acesso aos métodos estáticos se dá chamando a Interface por seu nome maiúsculo.
 	   
+9) Tipo do Objeto vs Instância do Objeto:
+
+	-> Qual a diferença de um Objeto ter um supertipo ou o tipo da classe instanciada?
+	   Caso o objeto tenha um supertipo ele não poderá acessar as propriedades e os métodos particulares da ins-
+	   tância. Isso só é possível quando o tipo do Objeto e o tipo da instância são os mesmos.
+	   É possível contornar o caso em que o Tipo é um supertipo e a instância é específica, fazendo uma "gambiarra",
+	   que é um downcasting da instância para um tipo inferior, como por ex:
+	   
+	   		Animal animal = new Husky(); //dessa forma "animal" não tem acesso às propriedades de "Husky"
+	   
+	   		Husky husky = animal; //não compila
+	   
+	   		Husky husky = (Husky)animal; //gambiarra total, porém funciona
 
 9) Polimorfismo:
 
@@ -239,19 +252,15 @@
 10) Diferentes tipos de declaração de Objetos com hierarquia:
 
 
-	Opção de declaração 1) Tipo do Objeto = Tipo da Instância (polimorfismo engessado)
+	Opção de declaração 1) Tipo do Objeto = Tipo da Instância
 	
-			 			   Vantagem: permite acessar propriedades do tipo da Instância sem realizar um downcasting.
-			 			   Desvantagem: não permite alternar o tipo da Instância na declaração e nem realizar aponta-
-			 			   mento da variável para outro tipo no decorrer do código. 
+			 			   Vantagem: permite acessar propriedades do tipo da Instância
+			 			   Desvantagem: não permite alterar o tipo da instância no futuro. 
 			 
-	Opção de declaração 2) Tipo do Objeto > Tipo da Instância (polimorfismo real)
+	Opção de declaração 2) Tipo do Objeto > Tipo da Instância (polimorfismo mais abrangente)
 	
-						   Desvantagem: Não permite acessar propriedades do tipo da Instância. 
-						   				(a não ser com downcasting)
-						   Vantagem: Permite alternar o tipo da Instância no momento da declaração. (caso de List)
-						             Permite alterar o apontamento da variável para uma classe do "tipo irmão" 
-						             da hierarquia mais adiante no código
+						   Desvantagem: não permite acessar propriedades do tipo da Instância
+						   Vantagem: permite alterar o tipo da Instância no futuro. (caso de List)
 						   
 						   
 11) Métodos Virtuais:

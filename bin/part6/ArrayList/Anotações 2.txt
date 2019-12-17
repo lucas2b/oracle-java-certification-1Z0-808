@@ -1,3 +1,5 @@
+-- ArrayList --
+
 1) O "tipo" ArrayList vem do pacote "java.util.ArrayList;"
 
 2) Os tipos da ArrayList/List contém apenas OBJETOS, nunca tipos primitivos!

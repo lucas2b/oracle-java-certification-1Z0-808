@@ -1,5 +1,8 @@
 package part99.myTests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import part8.ClassDesign.OrderOfInitializations;
 
 public class MyTests1 {
@@ -30,6 +33,11 @@ public class MyTests1 {
 		//testando construtor private package
 		
 //		OrderOfInitializations order = new Or //não consigo acessar o construtor fora do package dele
+		
+		
+		//Testes de polimorfismo
+		List<String> lista = new ArrayList<String>();
+		lista.add("oi");
 
 	}
 

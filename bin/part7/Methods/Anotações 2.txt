@@ -1,3 +1,5 @@
+-- Métodos --
+
 1) Declaração de métodos:
 	
 	-> Modificador de acesso não é obrigatório (sem modificador = package private/só as classes do mesmo pacote acessam)
@@ -6,11 +8,12 @@
 	
 
 2) Argumentos vs Parâmetros:
+
 	->Parâmetros = aparecem na definição do método
 	->Agumentos = valores passados na chamada
 	
 
-3) Parâmetros:
+3) Parâmetros de métodos:
 	
 	-> Os nomes dos parâmetros devem ser OBRIGATORIAMENTE diferentes, independente do tipo deles, ex:
 		public void parametros(int p, String p); //não compila, mesmo nome
@@ -46,15 +49,17 @@
 	   		System.out.println(inst.count); //funciona (a classe Dog contém um campo estático "count")
 	   
 	   
-	-> Lembrar: O mesmo descrito acima, vale para acessar métodos		
+	-> O mesmo acesso descrito acima, vale para acessar métodos		
 	-> Lembrar: É possível acessar um método/campo estático à partir de um método não-estático
-	-> Lembrar: Uma Classe não pode ser "static"
+	-> Lembrar: Não é permitido uma Classe ser do tipo "static"
 	
-6) Variáveis FINAL:
+6) Variáveis com modificador FINAL:
 
 	-> É possível manipular um objeto, ou uma lista final, através de seus métodos, apenas não é possível "re-assinalar"
 	   a variável para outro tipo
-	-> A variável FINAL deve ser OBRIGATORIAMENTE inicializada em sua declaração
+	   
+	-> A variável FINAL deve ser OBRIGATORIAMENTE inicializada em sua declaração, ou inicializada no método construtor,
+	   caso contrário, acarretará em um erro de compilação.
 	
 7) Inicialização static:
 
@@ -64,6 +69,7 @@
 	   private final static inteiro1;
 	   
 	   static{
+	   
 	     inteiro1 = 10; //inicializações
 	     inteiro2 = 20;
 	     
@@ -71,12 +77,14 @@
 	   }
 	   
 	   
-8) Referências passadas para método
+8) Referências passadas para método:
+
 	-> Os tipos primitivos são passados por valor-cópia
 	-> Os tipos objetos são passados por referência, PORÉM a referência não pode ser alterada (re-instanciada por exemplo),
 	   sendo essas modificações realizadas inválidas
 	   
-9) Em um método "void" o retorno "return;" é válido e compila
+9) Em um método "void" o retorno "return;" é válido e compila, ele é útil quando se quer sair abruptamente do método, dentro
+   de um comando de seleção como "if" por exemplo.
 
 10) Um erro de compilação interno de um método não se propaga na forma de erro de compilação em sua chamada de execução
 
@@ -87,9 +95,12 @@
 	   modificador de acesso diferente ou tendo propriedade static ou não. Dois métodos de nome igual e com a mesma assina-
 	   tura não irão compilar.
 	-> A assinatura do tipo array (int[] numbers) e (int... numbers) contam como assinaturas iguais
-	-> Sequência de prioridade para uma chamada de métodos com argumentos de "sum(1,2)"
+	-> Sequência  de prioridade para uma chamada de métodos com argumentos de "sum(1,2)"
 	   Sequência de assinaturas de métodos: int -> long -> double -> Integer -> Object -> var args
 	   										//1) esgotamento de tipos primitivos
 	   										//2) tipo Wrapper correspondente
 	   										//3) tipo Object 
 	   										//4) tipo var args
+	   										
+
+12) Classes imutáveis: Classe sem setter, apenas getters, valores são passados no construtor

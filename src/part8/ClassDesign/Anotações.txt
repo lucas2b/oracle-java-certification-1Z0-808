@@ -51,6 +51,7 @@
 		   ção da classe, caso contrário acusará um erro de compilador.
 		
 3) Inicializadores de instância:
+
 	-> Existe na declaração de classe, o bloco inicializador de instância denotado por
 		
 		{
@@ -60,6 +61,7 @@
  		Que inicializa os atributos dinâmicos do Objeto.
 
 4) Ordem de inicialização de objetos:
+
 	1) Se há superclasse, a inicializa primeiro
 	2) Declaração de variáveis estáticas e inicializadores estáticos em ordem que aparecem
 	3) Declaração de variáveis de instância e inicializadores de instância na ordem que aparecem
@@ -110,7 +112,7 @@
 		    O método pai é "protected" e o método filho é "protected" (aceitável)
 	   
 
-7) Métodos abstratos:
+7) Métodos/Classes abstratos:
 
 	-> Classes declaradas "abstratas" não podem ser instanciadas, e os métodos abstratos, precisam OBRIGATORIAMENTE
 	   estarem dentro de classes abstratas.
@@ -151,6 +153,123 @@
 		
 		Neste caso, a execução de "teste()" se dará na classe que o implementou e que chamou o método
 		"super.chamadaDeImplementacao()" (verificar classe Implementation)
+		
+8) Interfaces:
+
+	-> Modificadores de acesso da Interface: Podem ser "public" ou "private package", não podem ser "private"
+	   nem "protected"
+
+	-> Variáveis: Interfaces Pode conter "variáveis", porém por padrão são "public static final", por ex:
+	   	
+	   	int DEFAULT_HEIGHT = 5;
+	   		ou
+	   	public static final int DEFAULT_HEIGHT = 5;
+	   	
+	   	1) "private" e "protected" causam erros de compilação!
+	   	2) pode conter "public static final", ou apenas 1 ou mis desses modificadores, ou até mesmo nenhum
+	   
+	   
+	-> Declaração de métodos: Por padrão os métodos declarados são "public abstract", por ex:
+	   
+	   	void fly(int height); //pode vir precedido ou não de "public abstract" ou apenas 1 dos 2
+	   
+	   	1) Não podem ser "private" nem "protected", apenas podem ser "public abstract"
+	   	
+	-> As variáveis da interface podem ser utilizadas livremente dentro da classe que a implementa
+	
+	-> O método que implementa os métodos da interface, devem vir anotados com "@Override"
+	
+	-> Os métodos da interface devem ser implementados em algum ponto da hierarquia de classes, ou seja, não é
+	obrigatório uma classe que implementa uma interface, implementar um método dela, porém uma classe que herde desta
+	classe, deve implementá-lo, ex:
+	
+		Interface (declaração de método) 
+		-> Classe1 (implementa interface mas não o método) 
+		-> Classe2 (herda a Classe1 e implementa o método da Interface)
+		
+	-> Atenção: Um método de Interface pode ser implementado em uma classe e sobrescrito em uma classe seguinte!!!
+	
+	-> Uma classe pode implementar mais de uma Interface, porém, nestas Interfaces, não podem haver 2 métodos exatamente
+	   iguais, sob pena de gerar conflito na classe implementadora e ocasionar um erro de compilação.
+	
+	-> Uma classe pode estender de outra classe e simultaneamente implementar uma interface
+		1) Única ordem aceita na declaração de classe:
+		   class ImplementacaoDeInterface2 extends ImplementacaoDeInterface implements SecondInterface
+		   
+	-> Métodos Default: Uma interface pode ter métodos com corpo e com uma implementação default e fica à cargo
+	   da classe implementadora utilizá-los ou sobrescrevê-los. É possível invocar a implementação default da Interface
+	   na classe implementadora, através da sintaxe NomeDaInterface.super.nomeDoMetodo(), como por ex:
+	   	DefaultInterfaceMethods.super.metodoPadrao();
+	   	
+	-> Uma Interface pode herdar de outra, e essa por sua vez, pode sobrescrever métodos default de hierarquias anteriores
+	
+	-> Uma Interface pode ter método estáticos, e neste caso uma classe pode implementar 2 Interfaces com métodos de mesmo
+	   nome e assinatura, pois o acesso aos métodos estáticos se dá chamando a Interface por seu nome maiúsculo.
 	   
 
+9) Polimorfismo:
 
+	-> Polimorfismo de métodos por HERANÇA: Quando os métodos da classe pai são abstract e as classes derivadas
+	   são obrigadas a implementar esses métodos, assim alguns métodos de uma classe testadora podem receber
+	   como argumento o supertipo como argumento e em seu interior invocar os métodos próprios de cada implementação
+	   que possuem todos o mesmo nome e assinatura.
+	
+	-> Polimorfismo de métodos por INTERFACE: o mesmo acontece com classes que implementam interfaces, os métodos 
+	   implementados por estas classes, estarão disponíveis para a assinatura de outros métodos através do supertipo
+	   de classe.
+	
+
+	-> O que é possível fazer com polimorfismo?
+	
+		1) Alternar entre vários tipos de Instância (ArrayList, LinkedList, etc...) sem precisar mudar o Tipo do Objeto 
+		   (Isso é vantajoso, já que cada instância implementa os mesmos métodos, porém cada um com suas
+		   particularidades, por exemplo, uma lista Linkedlist pode sofrer grandes alterações de alocação sem perder performance, 
+		   pois sua implementação é baseada em listas ligadas, para isso basta trocar o tipo de instância.)
+		   Este tipo de implementação é chamado de "Métodos Virtuais". 
+		 
+		2) Um método pode receber como parâmetro um supertipo 
+		   (Polymorphic Parameter)
+		
+		3) Uma lista pode ser de um supertipo e receber tipos herdados 
+		   (Uma Lista do Tipo e instância "Pessoa" pode armazenar "Funcionários", "Gerentes", "Tercerizados", etc...)
+		
+		4) É possível percorrer uma lista de supertipos em um "for each"
+		
+
+10) Diferentes tipos de declaração de Objetos com hierarquia:
+
+
+	Opção de declaração 1) Tipo do Objeto = Tipo da Instância (polimorfismo engessado)
+	
+			 			   Vantagem: permite acessar propriedades do tipo da Instância sem realizar um downcasting.
+			 			   Desvantagem: não permite alternar o tipo da Instância na declaração e nem realizar aponta-
+			 			   mento da variável para outro tipo no decorrer do código. 
+			 
+	Opção de declaração 2) Tipo do Objeto > Tipo da Instância (polimorfismo real)
+	
+						   Desvantagem: Não permite acessar propriedades do tipo da Instância. 
+						   				(a não ser com downcasting)
+						   Vantagem: Permite alternar o tipo da Instância no momento da declaração. (caso de List)
+						             Permite alterar o apontamento da variável para uma classe do "tipo irmão" 
+						             da hierarquia mais adiante no código
+						   
+						   
+11) Métodos Virtuais:
+	
+	Acontece quando se realiza uma chamada de método da classe do supertipo e dentro deste método existe uma chamada
+	a um método abstract dentro desta classe, assim sendo, o método a ser executado será o da classe que
+	foi instanciada. Ex:
+	
+		Animal rabbit = new Rabbit();
+		rabbit.printDetails(); //método que só existe na classe Animal
+		
+		class Animal{
+		
+			protected abstract void printName();
+			
+			public void printDetails(){
+				printName(); //método virtual = o executor será definido conforme o Tipo da Instância
+			}
+		}
+		
+		
