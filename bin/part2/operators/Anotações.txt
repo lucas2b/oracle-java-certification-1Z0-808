@@ -1,4 +1,5 @@
-Anotações:
+-- Operadores --
+
 
 1) Numeric Promotion:
 

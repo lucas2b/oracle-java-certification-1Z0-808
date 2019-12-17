@@ -1,4 +1,4 @@
-Anotações:
+-- Java Basics --
 
 1) Importações:
 
@@ -19,28 +19,37 @@ Anotações:
 3) Primitivos:
 
 	-> Caso Long não couber na range int, deve acabar em "L", ex: long max = 32_123_456_789L;
+	
 	-> Caso Long couber em int, não precisa do "L", ex: long n = 2_300;
+	
 	-> Inícios de Binário, Octal e Hexa:
 		Binário = 0b (0 e 1)
 		Octal   = 0  (0 a 7)
 		Hexa    = 0x (0 a 9 e A a F)
+		
 	-> Separação de valore com "_":
 		Não Permitido:
 		1)Antes do ponto decimal  : 12_.25
 		2)Depois do ponto decimal : 12._25
 		3)Antes do número         : _12.25
 		4)Depois do número        : 12.25_
+		
 	-> Número decimal sem "f" no final, é automaticamente "double", ex: 
 		float myNumber = 25.4f; //25.4 is by default double
+		
 	-> Todo número float deve ser seguido de "f" no final, não importa sua magnitude, ex:
 		float myNumber = 25.4f; //caso não tenha "f" ocorre erro de compilação
+		
 	-> Um float é automaticamente convertido para double, ex:
 		double myDouble2 = 2.54F;
+		
 	-> "long" não pode ser automaticamente convertido para "int", ex: int amount = 9L;
+	
 	-> Notação científica:
 		O "E" seguido de número, indica quantas casas o ponto decimal deve "pular", ex:
 		double scientific = 5.000125E03;  (5.125)
 		double scientific2 = 5.000125E3;  (5.125)
+		
 	-> O valor do "char" não pode conter mais de 1 caractere, com exceção das notações em unicode, ex:
 		char uniChar= '\u03A9';
 		Ao printar, aparecerá com o formato literal
@@ -56,4 +65,4 @@ Anotações:
 		Em chamadas de métodos, tb é auto boxing, ex: sum(10,10); //assinatura do método é sum(Integer i1, Integer i2);
 		
 	-> Unboxing: De "Integer" para "int" implicitamente
-	int myInt2 = myInteger;
+	   int myInt2 = myInteger;

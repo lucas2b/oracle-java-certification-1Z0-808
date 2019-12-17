@@ -1,3 +1,5 @@
+-- Strings --
+
 1) Concatenção de Strings:
 
 	-> É perfeitamente possível somar Strings com "+", como por ex:

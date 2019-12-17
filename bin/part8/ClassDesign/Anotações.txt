@@ -1,4 +1,15 @@
-1) Construtores:
+-- Class Design --
+
+1) Apenas os modificadores "public", "abstract" e "final" são permitidos para classes:
+
+	-> Abstract = não pode ser instanciada
+	-> Final = não pode ser herdada por outra
+	-> Public = pode ser instanciada em qualquer lugar da aplicação
+	-> Ausência de "Public" = modificador de acesso do tipo "private package" (pode ser instanciada apenas no mesmo package)
+
+2) Construtores:
+		
+	-> Caso nenhum construtor seja declarado, o compilador gera automaticamente um construtor com acesso "public"
 
 	-> Caso a classe tiver uma variável com mesmo nome do parâmetro do método construtor, ela deverá ser referenciada
 	   por "this", caso contrário, a referência feita será ao parâmetro do método, ex:
@@ -33,11 +44,13 @@
 		
 		-> "this()." não existe e causa erro de compilação.
 		
-		-> Um construtor pode NÃO ter modificador de acesso nenhum, desta forma ele é um "private package", ou seja
+		-> Um constutor que não tenha modificador de acesso é um "private package", ou seja
 		   apenas classes do mesmo package podem instanciá-la.
+		   
+		-> Se uma classe tem apenas um construtor com parâmetros, ele deve ser obrigatoriamente invocado na instancia-
+		   ção da classe, caso contrário acusará um erro de compilador.
 		
-		
-2) Inicializadores de instância:
+3) Inicializadores de instância:
 	-> Existe na declaração de classe, o bloco inicializador de instância denotado por
 		
 		{
@@ -46,10 +59,98 @@
  		
  		Que inicializa os atributos dinâmicos do Objeto.
 
-3) Ordem de inicialização de objetos:
+4) Ordem de inicialização de objetos:
 	1) Se há superclasse, a inicializa primeiro
 	2) Declaração de variáveis estáticas e inicializadores estáticos em ordem que aparecem
 	3) Declaração de variáveis de instância e inicializadores de instância na ordem que aparecem
 	4) O Construtor
+	
+5) Herança:
+	
+	-> super(); chama o construtor superior (com/sem parâmetros), só pode ser invocado dentro de um dos construtores
+	   da hierarquia de herança. Deve ser o PRIMEIRO comando do construtor, caso contrário causa erro de compilação.
+	   
+	-> O que define o acesso às propriedades do Objeto, é seu tipo e não sua instância! O uso de um tipo de classe 
+	   de alta hierarquia, não permitirá o acesso às propriedades do tipo da instância (caso seja uma instância de
+	   nível hierárquico mais baixo).
+	   
+	-> Caso a superclasse tenha apenas construtor(es) com parâmetros, a classe que herda dela deve invocar o constru-
+	   tor da classe superior ( super() ) passando os parâmetros necessários.
+	   
+	-> Os acessos às "propriedades" e aos "métodos" das classes superiores se dão com a palavra chave "super." 
+	   seguido de ponto (nunca super().), dessa forma é possível acessar propriedades superiores e invocar métodos,
+	   desde que não sejam "private". O uso da palavra "super" é opcional em classes que herdam de outras, já que
+	   as propriedades e métodos fazem part do mesmo univero da hierarquia de herança, portanto o acesso por ser feito
+	   sem a palavra "super".
+	   
+	-> "this()" e "super()" não podem ser chamados simultaneamente em um mesmo construtor, caso contrário ocorre um 
+	   erro de compilção.
+	   
+6) Method Overriding: (métodos sobrescritos)
+
+	-> A palavra chave para chamar o método superior é "super." (com ponto), tomar cuidado pois se a chamada for realizada
+	   apenas pelo nome do método sobrescrito (sem o super.) ocorerrá uma chamada recursiva.
+	
+	-> Lembrar: Sobrecarga de método é ter várias versões de métodos disponíveis, cada versão com sua assinatura, já
+	   sobrescrita é redefinir o método em instâncias inferiores da hierarquia de herança contendo a mesma assinatura
+	   e o mesmo tipo de retorno
+	   
+	-> Não é possível sobrescrever métodos "private" e "final"
+	
+	-> Mesmo alterando o TIPO declarado da variável para a classe de maior hierarquia, ao executar o método sobrescrito,
+	   a preferência será pelo método mais especializado, ou seja, da classe que está sendo instanciada e contém o método
+	   sobrescrito. 
+	   
+	-> Não é obigatório chamar o método da classe superior dentro do método da classe inferior. A chamada do método mais su-
+	   perior, quando feita, pode ser feita em qualquer posição do método da classe inferior, sem causar erros de compilação
+	   
+	-> Modificadores de acesso: O método reescrito deve ter o mesmo modificador de acesso do método superior, ou um modificador
+	   mais permissivo. 
+		Ex: O método pai é "protected" e o método filho é "public" (aceitável)
+		    O método pai é "protected" e o método filho é "protected" (aceitável)
+	   
+
+7) Métodos abstratos:
+
+	-> Classes declaradas "abstratas" não podem ser instanciadas, e os métodos abstratos, precisam OBRIGATORIAMENTE
+	   estarem dentro de classes abstratas.
+	   
+	-> Métodos abstratos não possuem "corpo" de implementção, apenas declaração, como por exemplo:
+	   protected abstract void teste();
+	   
+	-> A implementação dos métodos "abstratos" se dão em classes que herdam da classe abstrata
+
+	-> Regras para definir métodos abstratos:
+		Regra 1) Métodos abstratos apenas podem ser definidos em classes abstratas
+		Regra 2) Métodos abstratos não podem ser declarados "private" ou "final"
+		Regra 3) Métodos abstratos não podem ser implementados na classe que são declarados
+		Regra 4) Implementar métodos abstratos em subclasses, seguem as mesmas regras de "sobrescrita de método"
+				 (ex: a assinatura do método deve ser a mesma e o modificador a mesma regra)
+				 
+	-> Uma classe herdada da classe pai abstract não tem a obrigação de implementar o método abstrato, caso esta
+	   seja uma classe abstrata também! Porém por sua vez, ela pode definir outros métodos abstratos.
+	   
+	-> Uma classe não pode ser "abstract" e "final" ao mesmo tempo (erro de compilação)
+	
+	-> Uma classe que herda de uma classe abstract que por sua vez herdou de outra classe abstract, deve implementar
+	   TODOS os métodos abstratos da cadeia de hierarquia de classes abstract
+	   
+	-> "super" não pode ser utilizado em um método estático
+	
+	-> Atenção para este comportamento!!! O método abstrato pode ser invocado na mesma classe "abstract", 
+	   porém por outro método regular, ex:
+	   
+		abstract class Def {
+
+			protected abstract void teste();
+	
+			public void chamadaDeImplementacao() {
+				teste(); //chamada de método abstract
+			}
+		}
+		
+		Neste caso, a execução de "teste()" se dará na classe que o implementou e que chamou o método
+		"super.chamadaDeImplementacao()" (verificar classe Implementation)
+	   
 
 
