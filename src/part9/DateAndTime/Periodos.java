@@ -28,7 +28,7 @@ public class Periodos {
 //		System.out.println(LocalTime.now().plus(period)); //tentativa de soma de 1 semana em uma "hora"
 		
 		
-		//Utilizando período personalizado
+		//Utilizando período de uma semana
 		System.out.println();
 		System.out.println("period: ");
 		cleanAnimalCagePersonalizedPeriod(start, end, period);

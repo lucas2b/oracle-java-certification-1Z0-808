@@ -5,6 +5,10 @@
 
 2) Classes de Data e Hora disponíveis:
 
+	-> Meses começam em 1 (Janeiro)
+	
+	-> ISO: ANO-MÊS-DIA
+
 	-> Classe LocalDate : Cria apenas "data"
 		LocalDate localDate = LocalDate.of(1994, Month.AUGUST, 12); //2019-12-18
 		
@@ -41,13 +45,55 @@
  	
  	-> "chaining methods" em Period, vai adicionar apenas o último método da cadeia, por ex:
  	   	  
- 	   	  Period yearAndMonth = Period.ofYears(1).ofMonths(1); //adiciona apenas 1 mês e não adiciona 1 ano
+ 	   	  	Period yearAndMonth = Period.ofYears(1).ofMonths(1); //adiciona apenas 1 mês e não adiciona 1 ano
  	   	  
  	   	  Modo correto:
- 	   	  Period yearAndMonth2 = Period.of(1, 1, 1);
  	   	  
-5) Formatação de Data e Hora:
+ 	   	  	Period yearAndMonth2 = Period.of(1, 1, 1);
+ 	   	  
+5) Formatação de Data e Hora: (Padronização de Data/Hora)
 
-	-> 
- 	   
+	-> A classe "DateTimeFormatter" é utilizada em todos os tipos de formatações, padrões ou perzonalizadas:
+	
+		DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)     //Retorna um Formatter para apenas o "Time"
+		DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)     //Retorna um Formatter para apenas a "Date"
+		DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) //Retorna um Formatter para o "Timestamp" todo
+		
+		String aplicFormatter = d.format(f); //Aplicação do formater que retorna uma String
+		
+	   
+ 	-> Fomatadores pré-definidos ISO:
+ 	
+ 			Utilizando a variável de tempo:
+ 			
+ 			dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE) //parsea e retorna só a Data formatada
+ 			dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) //parsea e retorna Data e Hora formatada
+ 			dateTime.format(DateTimeFormatter.ISO_LOCAL_TIME) //parsea e retorna só a Hora formatada
+ 			
+ 			Prestar a atenção para não innovar em uma variável "date" (Data) um formatador ISO_LOCAL_TIME, por exemplo,
+ 			pois ocorrerá uma exceção. O tipo da variável deve casar com o ISO do formatador
+ 	
+ 	-> Formatadores pré-definidos de Máscara:
+ 	
+ 			Criando um formatador de máscara:
+ 			DateTimeFormatter shortFomatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+ 			
+ 			Aplicando o formatador em uma date:
+ 			shortFomatter.format(dateTime);
+ 			
+ 			O mesmo esquema aqui, caso o método seja "ofLocalizedDate", ao passar uma variável que contenha apenas
+ 			a informação "time", vai ocorrer uma exceção
+ 	
+ 	-> Formatadores personalizados: 
+ 			
+ 			Uso:
+ 			DateTimeFormatter meuFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm");
+			System.out.println("Meu formatter: " + meuFormatter.format(dateTime));
+			
+			Quanto mais "MMMM" ou "dd", mais extensa será a informação, e quanto menor o número de letras
+			mais abreviada será a informação
+			
+6) Parseando Data e Hora: (Reconhecimento de Data/Hora)
+
+	-> Trata-se da conversão de String para Data/Hora. Não se determina o formato de apresentação (pattern)  
  	   

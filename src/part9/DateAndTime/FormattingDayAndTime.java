@@ -16,24 +16,27 @@ public class FormattingDayAndTime {
 		LocalDateTime dateTime = LocalDateTime.of(date, time);
 		
 		
-		//Formatadores pré-definidos
+		//-> Formatadores pré-definidos
 		System.out.println("Formatadores DateTime:");
 		System.out.println(dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE)); //Data
 		System.out.println(dateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)); //DataTHora
 		System.out.println(dateTime.format(DateTimeFormatter.ISO_LOCAL_TIME)); //Hora
 		System.out.println();
 		
-		//Troca a máscara da data
-		DateTimeFormatter shortFomatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+		//-> Troca a máscara da data
+		DateTimeFormatter shortFomatter  = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
 		DateTimeFormatter mediumFomatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
 		
 		System.out.println("Formatadores de máscara:");
 		System.out.println("short: " + shortFomatter.format(dateTime));
 		System.out.println("medium: " + mediumFomatter.format(dateTime));
+		System.out.println();
 		
 //		System.out.println("exceção: " + mediumFomatter.format(time)); //o Formatter é para Localized Date, não Time
 		
-		
+		//-> Máscara personalizada
+		DateTimeFormatter meuFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy, hh:mm");
+		System.out.println("Meu formatter: " + meuFormatter.format(dateTime)); //Utilizando Formatter como máscara
 		
 
 	}
