@@ -39,7 +39,17 @@ public class PolimorfismoComHeranca {
 
 }
 
-abstract class Pessoa{
+abstract class vava{
+	
+	public String olaMundo(String p) {
+		return null;
+	}
+	
+}
+
+abstract class Pessoa extends vava{
+	
+	public static final int varTesteQuestion7 = 666;
 	
 	public String nome;
 	public char   sexo;
@@ -47,7 +57,16 @@ abstract class Pessoa{
 	public int 	  idade;
 	
 	
+//	public int olaMundo(String p) { //tipo de retorno incompatível com o método da classe vava
+//		return 3;
+//	}
+	
+	
 	abstract void bonificacao();
+	
+	public static void metodoEstaticoDentroDeClasseAbstract() {
+		
+	}
 	
 	
 }

@@ -7,8 +7,6 @@ public class Inheritance1 {
 		Shihtzuh shihtzu = new Shihtzuh(null);
 		
 		//shihtzu.nomeAnimal
-		
-
 
 	}
 

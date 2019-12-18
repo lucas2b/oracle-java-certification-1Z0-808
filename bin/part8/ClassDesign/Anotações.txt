@@ -88,22 +88,26 @@
 	-> "this()" e "super()" não podem ser chamados simultaneamente em um mesmo construtor, caso contrário ocorre um 
 	   erro de compilção.
 	   
-6) Method Overriding: (métodos sobrescritos)
+6) Method Overriding: (métodos sobrescritos na hierarquia de Classes)
 
-	-> A palavra chave para chamar o método superior é "super." (com ponto), tomar cuidado pois se a chamada for realizada
-	   apenas pelo nome do método sobrescrito (sem o super.) ocorerrá uma chamada recursiva.
-	
 	-> Lembrar: Sobrecarga de método é ter várias versões de métodos disponíveis, cada versão com sua assinatura, já
 	   sobrescrita é redefinir o método em instâncias inferiores da hierarquia de herança contendo a mesma assinatura
 	   e o mesmo tipo de retorno
 	   
+	-> É considerada uma tentativa de SOBRESCRITA de método da Classe superior quando o nome do método e os parâmetros
+	   são iguais à definição do método da Classe superior, independente do tipo de retorno! Caso o tipo de retorno não
+	   seja igual neste caso, haverá um erro de compilação.
+	
+	-> A palavra chave para chamar o método superior é "super." (com ponto), tomar cuidado pois se a chamada for realizada
+	   apenas pelo nome do método sobrescrito (sem o super.) ocorerrá uma chamada recursiva.
+	   
 	-> Não é possível sobrescrever métodos "private" e "final"
 	
-	-> Mesmo alterando o TIPO declarado da variável para a classe de maior hierarquia, ao executar o método sobrescrito,
+	-> Mesmo alterando o TIPO declarado da variável para a Classe de maior hierarquia, ao executar o método sobrescrito,
 	   a preferência será pelo método mais especializado, ou seja, da classe que está sendo instanciada e contém o método
 	   sobrescrito. 
 	   
-	-> Não é obigatório chamar o método da classe superior dentro do método da classe inferior. A chamada do método mais su-
+	-> Não é obrigatório chamar o método da classe superior dentro do método da classe inferior. A chamada do método mais su-
 	   perior, quando feita, pode ser feita em qualquer posição do método da classe inferior, sem causar erros de compilação
 	   
 	-> Modificadores de acesso: O método reescrito deve ter o mesmo modificador de acesso do método superior, ou um modificador
@@ -116,6 +120,10 @@
 
 	-> Classes declaradas "abstratas" não podem ser instanciadas, e os métodos abstratos, precisam OBRIGATORIAMENTE
 	   estarem dentro de classes abstratas.
+	   
+	-> Classes Abstratas podem estender outras Classes Abstract e Classes regulares.
+	
+	-> Classes Abstratas podem possuir métodos estáticos implementados.
 	   
 	-> Métodos abstratos não possuem "corpo" de implementção, apenas declaração, como por exemplo:
 	   protected abstract void teste();
@@ -156,8 +164,14 @@
 		
 8) Interfaces:
 
+	-> É considerada uma tentativa de implementação de método da Interface quando o nome do método e os parâmetros
+	   são iguais à definição de método da Interface, independente do tipo de retorno! Caso o tipo de retorno não
+	   seja igual neste caso, haverá um erro de compilação.
+
 	-> Modificadores de acesso da Interface: Podem ser "public" ou "private package", não podem ser "private"
 	   nem "protected"
+	   
+	-> Uma Interface pode estender outra Interface, porém não pode estender uma Classe
 
 	-> Variáveis: Interfaces Pode conter "variáveis", porém por padrão são "public static final", por ex:
 	   	
@@ -179,8 +193,10 @@
 	
 	-> O método que implementa os métodos da interface, devem vir anotados com "@Override"
 	
+	-> Uma classe "abstract" que implemente uma Interface, não é obrigada a implementar nada da Interface!
+	
 	-> Os métodos da interface devem ser implementados em algum ponto da hierarquia de classes, ou seja, não é
-	obrigatório uma classe que implementa uma interface, implementar um método dela, porém uma classe que herde desta
+	obrigatório uma classe que implementa uma interface, implementar um método da interface, porém uma classe que herde desta
 	classe, deve implementá-lo, ex:
 	
 		Interface (declaração de método) 
@@ -203,8 +219,13 @@
 	   	
 	-> Uma Interface pode herdar de outra, e essa por sua vez, pode sobrescrever métodos default de hierarquias anteriores
 	
-	-> Uma Interface pode ter método estáticos, e neste caso uma classe pode implementar 2 Interfaces com métodos de mesmo
-	   nome e assinatura, pois o acesso aos métodos estáticos se dá chamando a Interface por seu nome maiúsculo.
+	-> Uma Interface pode ter método estáticos desde que com corpo e implementados, pois não suporta apenas definição de método estático,
+	
+	-> Uma Classe pode vir a implementar 2 Interfaces que contenham 2 métodos de mesmo nome e mesma assinatura, já que não haverá conflito
+	   de invocação, uma vez que para invocar métodos estáticos é necessário referenciar a Classe/Interface com letra maiúscula, ex:
+	   		
+	   		InterfaceTeste1.metodoEstatico();
+	   		InterfaceTeste2.metodoEstatico();
 	   
 
 9) Polimorfismo:
@@ -271,5 +292,4 @@
 				printName(); //método virtual = o executor será definido conforme o Tipo da Instância
 			}
 		}
-		
 		
