@@ -1,13 +1,70 @@
 package part99.myTests;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import part9.DateAndTime.A;
 
-import part8.ClassDesign.OrderOfInitializations;
 
-public class MyTests1 {
+public class MyTests1 extends A{
+	
+	String nome;
+	int idade;
+	
+	void MyTests1() {
+		MyTests1("lucas", 33); //instancia se perde no espaço
+	}
+	
+	void MyTests1(String p1, int p2) {
+		this.nome = p1;
+		this.idade = p2;
+		
+	}
+	
+	public void print() {
+		
+
+		
+		
+		A obj = new A();
+		System.out.println(obj.i1);
+		//System.out.println(obj.i2);
+		
+		System.out.println(this.i2);
+		System.out.println(super.i2);
+		
+	}
 
 	public static void main(String[] args) {
+		
+		
+		String fruta = "apple";
+		
+		switch (fruta) {
+		
+		default:
+			System.out.println("default");
+		case "apple":
+			System.out.println("apple");
+		}
+		
+		new MyTests1().print();
+		System.out.println();
+		
+		
+		MyTests1 myteste1 = new MyTests1();
+		System.out.println(myteste1.idade + " : " + myteste1.nome);
+		System.out.println();
+		
+		
+		System.out.println(new StringBuilder("oi"));
+
+		LocalDate ld = LocalDate.parse("1947-08-14");
+		LocalTime lt = LocalTime.MAX;
+		System.out.println(ld.atTime(lt));
+		
+		
 		
 		//Testando se objetos são iguais no conteúdo
 		

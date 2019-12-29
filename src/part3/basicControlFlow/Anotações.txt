@@ -117,4 +117,4 @@
 		
 		o "recebe" de uma expressão booleana é válida no teste do "if"
 	
-	-> Não é possível comparar com "==" 2 classes diferentes, por exemplo String com StringBuilder
+	-> Não é possível comparar 2 classes diferentes com "==", por exemplo String com StringBuilder

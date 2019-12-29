@@ -5,7 +5,7 @@
 	-> Classes do default package não pode ser importadas em outras classes
 	-> Uma classe com mesmo nome em 2 pacotes não pode ser importada se os 2 pacotes estão sendo importados
 	-> Uma classe que só contém membros estáticos pode ser importada estaticamente
-	->  Ordem dos elementos: PIC -> (Package, Imports, Class)
+	-> Ordem dos elementos: PIC -> (Package, Imports, Class)
 
 2) Nomes de Variáveis:
 
@@ -15,12 +15,15 @@
 		double _a1toDouble;
 		double myTest_;
 		float  __okButNotNice$123_;
+		int	   _;
+		int    $;
 	
 3) Primitivos:
 
-	-> Caso Long não couber na range int, deve acabar em "L", ex: long max = 32_123_456_789L;
+	-> Todo número "solto" inteiro é um "int", caso o número não couber na range int deve acabar em "L",
+	   ex: long max = 32_123_456_789L;
 	
-	-> Caso Long couber em int, não precisa do "L", ex: long n = 2_300;
+	-> Caso int couber em long, não precisa do "L" no fim, ex: long n = 2_300;
 	
 	-> Inícios de Binário, Octal e Hexa:
 		Binário = 0b (0 e 1)
@@ -28,11 +31,13 @@
 		Hexa    = 0x (0 a 9 e A a F)
 		
 	-> Separação de valore com "_":
-		Não Permitido:
-		1)Antes do ponto decimal  : 12_.25
-		2)Depois do ponto decimal : 12._25
-		3)Antes do número         : _12.25
-		4)Depois do número        : 12.25_
+		
+		Não são permitidos Permitidos:
+		
+			1)Antes do ponto decimal  : 12_.25
+			2)Depois do ponto decimal : 12._25
+			3)Antes do número         : _12.25
+			4)Depois do número        : 12.25_
 		
 	-> Número decimal sem "f" no final, é automaticamente "double", ex: 
 		float myNumber = 25.4f; //25.4 is by default double

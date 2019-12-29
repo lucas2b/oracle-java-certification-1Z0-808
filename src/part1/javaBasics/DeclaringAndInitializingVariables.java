@@ -1,6 +1,8 @@
 package part1.javaBasics;
 
 public class DeclaringAndInitializingVariables {
+	
+	String teste;
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {

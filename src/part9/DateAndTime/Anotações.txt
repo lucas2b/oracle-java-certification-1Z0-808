@@ -10,7 +10,7 @@
 	-> ISO: ANO-MÊS-DIA
 
 	-> Classe LocalDate : Cria apenas "data"
-		LocalDate localDate = LocalDate.of(1994, Month.AUGUST, 12); //2019-12-18
+		LocalDate localDate = LocalDate.of(1994, Month.AUGUST, 12); //2019-12-08
 		
 	-> Classe LocalTime : Cria apenas "hora"
 		LocalTime localTime = LocalTime.of(23, 30); //08:35:16.493

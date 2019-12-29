@@ -71,5 +71,5 @@
 		
 5) Operadores "Equality" (==) e .equals():
 	-> Valores de Primitivos são comparados com "==", valores de Objetos são comparados com ".equals()"
-	-> Caso Objetos forem comparados com "==" será comparado o endereço de memória
-	-> ints de -127 a 127 são caheados e tem o mesmo endereço,ser Integers tb, não ocorre com double e float	 
+	-> Caso OBJETOS forem comparados com "==" será comparado o endereço de memória
+	-> ints de -127 a 127 são caheados e tem o mesmo endereço, Integers tb, não ocorre com double e float	 

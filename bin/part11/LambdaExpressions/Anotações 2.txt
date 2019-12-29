@@ -1,0 +1,31 @@
+-- Expressões Lambda --
+
+
+1) Definição: Expressão funcional para filtragem utilizando critério em cima de listas
+
+2) É possível filtrar Listas cujos ítens são objetos personalizados, para tal, é preciso obedecer algumas regras: 
+   
+	  Criação de:	
+	-> 1 Interface com 1 método (obrigatório)
+	-> 1 Classe com implmementação padrão deste método (não obrigatória)
+	-> 1 Método executor que recebe como parâmetro a Interface do filtro (obrigatório)
+	
+	Fluxo de funcionamento:
+		1) Método executor é chamado com 1 dos parâmetros como função
+		2) Todos ítens da lista são passados para o método executor
+		3) O "corpo" da expressão lambda, incluindo seu retorno, irão substituir a implementação do método de filtragem
+		4) Para tanto o método de filtragem deve ser invocado dentro do método executor (utilizando o polimorfismo da interface)
+	
+3) Regra de uso do comando "return" em expressões lambda:
+
+   		-> Apenas 1 comando  = não precisa de bloco de código e não precisa "return"
+   		-> Mais de 1 comando = necessário bloco de código e necessário comando "return"
+   		-> Abriu brackets {},  é obrigatório o return, sem exceção
+   		-> Ao tipar o/os parâmetros de entrada , é OBRIGATÓRIO os parênteses "(Animal animal)"
+
+
+4) Predicate: Ao invés de passar uma Interface no método executor, pode-ser passar um Predicate<T>, que executará o
+   método "test", assim não é mais necessário definir uma Interface personalizada, pode-se utilizar a "Predicate"
+   
+   Predicates são utilizados tb para filtragem em outros lugares, como lista de Strings
+	

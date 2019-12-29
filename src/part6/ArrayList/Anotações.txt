@@ -81,7 +81,7 @@
 	
 	-> Lista para Array:
 	
-		Forma 1) Object[] arrayDeObjetos = lista.toArray(); //Retorna um Array de Objeto que deve ser convertido
+		Forma 1) Object[] arrayDeObjetos = lista.toArray(); //Retorna um Array de Object que deve ser convertido
 		
 		Forma 2) String[] arrayDeString  = lista.toArray(new String[0]); //Retorna um Array do tipo especificado
 																		 //no argumento. O tamanho passado em [],
@@ -96,7 +96,7 @@
 																					 //uma lista e adicionar elementos
 																					 
 		-> Uma operação de "set" na lista, afeta o array associado, por ex:
-		   minhaLista.set(0, "alterado"), reflitirá em meuArray[0] = "alterado"
+		   minhaLista.set(0, "alterado"), reflitirá em meuArray[0] = "alterado" //lembrar que "set" é alteração de valor
 		   
 		-> Operações que causam exceções:
 			1) listOfPets.add("bird"); //"lista tem tamanho fixo"
@@ -143,4 +143,13 @@
 				  4) possível checar se existe um ítem anterior para controle do loop decrescente:
 				     listIterator.hasPrevious()			  
 				  5) possível acessar o item anterior: listIterator.previous() 
+				  
+				  Ex:
+				  
+				  numbers.addAll(Arrays.asList(1, 2, 3, 4, 5, 6));
+				  for(ListIterator<Integer> listIterator = numbers.listIterator(3); listIterator.hasPrevious();  ) {
+				  	System.out.println(listIterator.previous());
+					//listIterator.add(3); //permitido
+					//listIterator.remove();
+				  }
 	 			

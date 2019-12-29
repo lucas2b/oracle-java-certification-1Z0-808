@@ -12,7 +12,7 @@
 		Caso 1) Soma de inteiros antes e String depois: A soma é efetuada e o resultado é concatenado com String
 		        System.out.println(1 + 2 + "b"); //3b
 		   
-		Caso 2) String primeiro e soma de inteiros: Se a soma não estiver isolada por parênteses, é realizada
+		Caso 2) String primeiro e soma de inteiros depois: Se a soma não estiver isolada por parênteses, é realizada
 		        uma concatenação de tudo
 		        System.out.println("result= " + 10 + 20); //result=1020
 		   
@@ -34,10 +34,15 @@
 		String name  = "John";
 		String john	 = "Jo" +  "hn";
 		
+		(name == john) //true
+		
+		
 	-> Caso que NÃO utiliza a String Pool:
 		String abc = "abc";
 		String ab =  "ab";
 		String str =  ab + "c"; //Não utiliza String Pool pois parte da formação é feita por uma variável
+		
+		if(abc == str) //false
 		
 4) Métodos de Strings:
 	

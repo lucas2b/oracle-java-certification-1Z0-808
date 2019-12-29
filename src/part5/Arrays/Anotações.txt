@@ -27,8 +27,8 @@
 
 5) ORDENAÇÃO de Arrays:
 
-	-> É possível ordenar todos os tipos primitivos
 	-> Método utilizado para ordenação: Arrays.sort(numbers);
+	-> É possível ordenar todos os tipos primitivos
 	-> Não é possível utilizar ordenação de Arrays de outros Objetos, pois retorna uma exceção
 	   "cannot be cast to java.lang.Comparable", a não ser que esse método seja implementado em classe.
 	 
