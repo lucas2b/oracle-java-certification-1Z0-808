@@ -1,6 +1,6 @@
 package part7.Methods;
 
-import part99.myTests.Common;
+import testes.myTests.Common;
 
 public class AccessModifiers {
 
