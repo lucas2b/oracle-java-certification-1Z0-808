@@ -1,0 +1,159 @@
+-- Exceptions --
+
+
+1) É possível declarar uma exceção de forma explícita com o comando "throw new Exception("Falhou ao carregar");" ou
+   "throw new RuntimeException("runtime");" por exemplo em qualquer trecho do código, inclusive dentro de um "try" ou
+   de um "catch"
+   
+2) O programador pode criar classes pessoais e estender uma classe de exceção, como por exemplo "Exception" ou 
+   "RuntimeException" e esta classe pode ser utilizada para lançar uma exceção!
+   
+
+3) É possível criar um "Try" vazio, porém deve haver o bloco catch (que tb pode estar vazio), ex:
+	
+		try {
+				
+		}catch(Exception e) {
+				
+		}
+
+4) Checked vs Unchecked:
+
+	-> O programador pode criar métodos que disparam exceções, na declaração destes métodos, o mesmo deve optar
+	   pela declaração "Checked" ou "Unchecked". Porém caso o interior do método contenha uma instrução que dispara
+	   uma exceção do tipo "Checked", o programador deve obrigatoriamente classificar seu método como "checked", apontando
+	   na declaração de seu método "throws Exception".
+	
+	-> Unchecked: Utiliza declaração "throws RuntimeException" no método
+		Compilador não obriga a tratar nem declarar "Throws" no método que está chamando
+		
+	-> Checked: Utiliza declaração "throws Exception" no método
+		Compilador obriga a tratar ou declarar "Throws" no método que está chamando
+		
+5) Finally:
+
+	-> Sempre executa por último, acontecendo a exceção ou não
+	-> Conveniente no caso em que acontece uma exceção, ela não é tratada, e é necessário fechar algum Stream
+	-> Catch sem o try causa erro de compilação
+	
+6) Capturando diferentes Exceções, Hierarquia e Multicatch:
+
+	-> Caso o "Catch" não pegar a exceção correta, a exceção não será tratada e o programa irá ABORTAR! P
+	   Por isso é muito importante escolher adequadamente qual Exceção o "catch" irá capturar.
+   
+   -> É possível realizar um "multi-catch", ou seja, vários blocos de "catch", cada 1 capturando um tipo de Exceção diferente
+	
+   -> Só pode ocorrer 1 tipo de exceção a cada try, portanto um bloco de catch apenas será executado
+   
+   -> No caso de uma hierarquia de classes de Exceções, caso a Exceção de mais alta hierarquia se apresentar no primeiro
+      bloco "catch", é ela que vai ser executada.
+      
+      	Hierarquia na ordem de lançamento de Exceptions de "catch":
+      		
+      		//Regra de ordem:
+				//Primeiro a exceção de nome igual
+				//depois a filha superior
+				//depois o pai
+				
+			Exemplo:
+			
+			//Exception > RuntimeException > ArithmeticException
+			
+			try {
+				
+				throw new ArithmeticException();
+				
+			}catch(ArithmeticException e) {
+				
+			}catch(RuntimeException e) {
+				
+			}catch(Exception e) {
+				
+			}
+      
+7) Nested exceptions:
+
+	-> É possível realizar um ciclo completo de "try->catch->finally" dentro de um bloco "try", "catch" ou
+	   "finally".
+	   
+	   1) Situação dentro do try:
+	   
+		   	try {
+				
+				try {
+					
+				}catch (Exception e) {
+					throw new Exception(); //não precisa ser tratado, new Exception() já está dentro de um try maior
+				}finally {
+					throw new Exception(); //não precisa ser tratado, new Exception() já está dentro de um try maior
+				}
+						
+			}catch (Exception e) {
+				System.out.println(" Caiu no catch mais externo");
+				
+				
+			}finally {
+				
+			}
+			
+		2) Situação dentro do "catch":
+		
+			try {
+				
+					
+			}catch (Exception e) {
+				try {
+					
+				}catch (Exception e2) {
+					throw new Exception();
+				}finally {
+					throw new Exception(); //PRECISA ser tratado
+				}
+			
+			}finally {
+			
+			}
+			
+		3) Situação dentro do "finaly":
+		
+			try {
+						
+			}catch (Exception e) {	
+			
+			}finally {
+			
+				try {
+					
+				}catch (Exception e2) {
+					throw new Exception();
+				}finally {
+					throw new Exception(); //PRECISA ser tratado
+				}
+			
+			}
+			
+		-> Porém a inclusão o comando "throw e;" dentro de um "catch" dispara uma exceção e não 
+		   precisa ser tratada, pois não acusa erro de compilador o.O
+			
+8) Return: 
+	
+	-> Bloco finally é SEMPRE executado, mesmo que haja uma instrução de "return;" no "catch" ou no "try",
+	   caso haja uma instrução de "return" com argumento no finally, é este valor que será retornado, os outros
+	   serão ignorados.
+	   Caso o bloco finally não tenha return, mas o catch tenha, o do catch será retornado, ex:
+	   
+	   public static int calculate() {
+			try {
+				return 10/0;
+			}catch(ArithmeticException e) {
+				System.out.println("Error");
+				return 1;
+			}finally {
+				System.out.println("finally");
+				return 0; //será retornado
+			}
+		}
+	    
+	-> Único caso em que finally não é executado é quando chama-se system.exit() em um bloco superior
+	
+9) É possível declarar um método com "Exception" como seu retorno
