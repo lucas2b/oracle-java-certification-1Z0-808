@@ -38,6 +38,7 @@ public class SwitchStatement {
 		
 		
 		//Identificador de vogais
+		
 		Random random = new Random();
 		int rand = random.nextInt(26) + 'a';
 		
@@ -62,6 +63,38 @@ public class SwitchStatement {
 		switch(inteiro) {
 			//case 'a':
 		}
+		
+		System.out.println();
+		
+		//Teste com String
+		
+		String nome = "Lucas";
+		switch (nome) {
+			default:
+				System.out.println("caiu no default");
+			case "lucas":
+				System.out.println("String é lucas");
+			case "joao":
+				System.out.println("String é joao");
+			case "paulo":
+				System.out.println("String é paulo");
+				break;
+		}
+		
+		System.out.println();
+		
+		String fruit = "mango";
+        switch (fruit) {
+            default:
+                System.out.println("ANY FRUIT WILL DO");
+            case "Apple":
+                System.out.println("APPLE");
+            case "Mango":
+                System.out.println("MANGO");
+            case "Banana":
+                System.out.println("BANANA");
+                break;
+        }
 
 	}
 
