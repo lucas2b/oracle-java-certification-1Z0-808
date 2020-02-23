@@ -22,6 +22,10 @@ public class MyTests1 extends A{
 		
 	}
 	
+	public static String getColor() {
+		return "green";
+	}
+	
 	public void print() {
 		
 

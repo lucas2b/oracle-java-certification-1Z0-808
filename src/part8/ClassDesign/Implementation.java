@@ -4,7 +4,7 @@ package part8.ClassDesign;
 
 abstract class Def {
 
-	protected abstract void teste();
+	 abstract protected void teste();
 	
 	public void chamadaDeImplementacao() {
 		teste();
@@ -22,6 +22,8 @@ class Implementation extends Def{
 	public void oi() {
 		super.chamadaDeImplementacao();
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println("estou aqui");

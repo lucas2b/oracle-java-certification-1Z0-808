@@ -95,6 +95,42 @@ public class SwitchStatement {
                 System.out.println("BANANA");
                 break;
         }
+        
+        
+        //Testando variavel final
+        
+        final byte b1 = 10;
+        final Byte b2 = 10;
+        
+        
+        final short s1 = 20;
+        final Short s2 = 20;
+        
+        
+        final int i1 = 30;
+        final Integer i2 = 30;
+        
+        final Integer i3 = 30;
+        
+        final char c1 = 'a';
+        
+        final long l1 = 40;
+        
+        final String string = "a";
+        
+        
+        // questao simulado
+        byte var = 100;
+        switch(var) {
+            case 100:
+                System.out.println("var is 100");
+                break;
+//            case 200:
+//               System.out.println("var is 200");
+//               break;
+            default:
+                System.out.println("In default");
+        }
 
 	}
 
