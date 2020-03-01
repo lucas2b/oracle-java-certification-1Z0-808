@@ -3,32 +3,23 @@ package testes.myTests;
 import java.util.ArrayList;
 import java.util.List;
 
-class Student{
-	public String name;
-	
-	public void setName(String param) {
-		this.name = param;
-	}
-}
-
 public class MyTests2 {
 	
-	public static void main(String[] args) {
+	public MyTests2(String param1) {
 		
-		List colors = new ArrayList();
-		colors.add("green");
-		colors.add("red");
-		colors.add("blue");
-		colors.add("yellow");
-		
-		colors.remove(2);
-		colors.add(3, "cyan");
-		
-		System.out.println(colors);
-		
-		
-		
+	}
 	
-    }	
+	public MyTests2(String p1, String p2) {
+		this("lucas");
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println("String main:" + args[0]);
+	
+	}	
+	
 	
 }
+
+
